@@ -9,7 +9,7 @@ function addR() {
     let tr  = document.createElement("tr");
 
     //  Append the tr to the grid
-    console.log(document.querySelector("#grid").appendChild(tr));
+    document.querySelector("#grid").appendChild(tr);
 }
 //Add a column
 function addC() {
