@@ -5,11 +5,12 @@ let colorSelected;
 //Add a row
 function addR() {
     // alert("Clicked Add Row")
+    let table = document.getElementById("grid");
     // Create a new tr element.
-    let tr  = document.createElement("tr");
+    let tr  = document.createElement('tr');
 
     //  Append the tr to the grid
-    document.querySelector("#grid").appendChild(tr);
+    document.querySelector(table).appendChild(tr);
 }
 //Add a column
 function addC() {
