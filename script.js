@@ -17,7 +17,14 @@ function addR() {
 }
 //Add a column
 function addC() {
-    alert("Clicked Add Col")
+    // alert("Clicked Add Col")
+    let grid = document.getElementById("grid");
+    let tr = grid.getElementsByTagName('tr');
+    // Create a new td element.
+    let td = document.createElement('td');
+    // Append row to show up in a column
+    tr.appendChild(td);
+
 }
 
 //Remove a row
