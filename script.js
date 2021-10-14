@@ -13,17 +13,18 @@ function addR() {
     // Append row to show up in a column
     tr.appendChild(td);
     //  Append the tr to the grid
-    grid.appendChild(tr);
+    numRows++;
 }
 //Add a column
 function addC() {
     // alert("Clicked Add Col")
-    let grid = document.getElementById("grid");
-    let tr = grid.getElementsByTagName('tr');
-    // Create a new td element.
-    let td = document.createElement('td');
+    numCols++;
     // Append row to show up in a column
-    tr.appendChild(td);
+    for(let i=0;i< numRows; i++){
+        console.log(document.querySelectorAll("tr")[i]);
+        console.log(i);
+        document.querySelectorAll('tr')[i].appendChild(document.createElement('td'));
+    }
 
 }
 
