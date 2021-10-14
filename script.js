@@ -4,7 +4,16 @@ let colorSelected;
 
 //Add a row
 function addR() {
-    alert("Clicked Add Row")
+    // alert("Clicked Add Row")
+    let grid = document.getElementById("grid");
+    // Create a new tr element.
+    let tr  = document.createElement('tr');
+    // Create a new td element.
+    let td = document.createElement('td');
+    // Append row to show up in a column
+    tr.appendChild(td);
+    //  Append the tr to the grid
+    grid.appendChild(tr);
 }
 //Add a column
 function addC() {
