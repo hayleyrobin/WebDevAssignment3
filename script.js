@@ -25,12 +25,14 @@ function addC() {
         console.log(i);
         document.querySelectorAll('tr')[i].appendChild(document.createElement('td'));
     }
-
 }
 
 //Remove a row
 function removeR() {
-    alert("Clicked Remove Row")
+    // alert("Clicked Remove Row")
+    let rows = document.querySelector("tr");
+    let lastRow = rows.lastElementChild;
+    rows.removeChild(lastRow);
 }
 //Remove a column
 function removeC() {
