@@ -13,6 +13,7 @@ function addR() {
     // Append row to show up in a column
     tr.appendChild(td);
     //  Append the tr to the grid
+    grid.appendChild(tr); 
     numRows++;
 }
 //Add a column
@@ -25,12 +26,14 @@ function addC() {
         console.log(i);
         document.querySelectorAll('tr')[i].appendChild(document.createElement('td'));
     }
-
 }
 
 //Remove a row
 function removeR() {
-    alert("Clicked Remove Row")
+    // alert("Clicked Remove Row")
+    let grid = document.getElementById("grid");
+    let lastRow = grid.lastElementChild;
+    grid.removeChild(lastRow);
 }
 //Remove a column
 function removeC() {
