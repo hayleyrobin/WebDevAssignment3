@@ -13,11 +13,19 @@ function addR() {
     // Append row to show up in a column
     tr.appendChild(td);
     //  Append the tr to the grid
-    grid.appendChild(tr);
+    numRows++;
 }
 //Add a column
 function addC() {
-    alert("Clicked Add Col")
+    // alert("Clicked Add Col")
+    numCols++;
+    // Append row to show up in a column
+    for(let i=0;i< numRows; i++){
+        console.log(document.querySelectorAll("tr")[i]);
+        console.log(i);
+        document.querySelectorAll('tr')[i].appendChild(document.createElement('td'));
+    }
+
 }
 
 //Remove a row
