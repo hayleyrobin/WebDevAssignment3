@@ -37,7 +37,13 @@ function removeR() {
 }
 //Remove a column
 function removeC() {
-    alert("Clicked Remove Col")
+    // alert("Clicked Remove Col")
+    for(let i=0; i< numRows; i++){
+        let row = document.querySelectorAll('tr')[i];
+        let lastRow = row.lastElementChild;
+        row.removeChild(lastRow);
+    }
+
 }
 //sets global var for selected color
 function selected(){
