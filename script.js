@@ -4,36 +4,43 @@ let colorSelected;
 
 //Add a row
 function addR() {
+    let defCol = "magenta";
     let grid = document.getElementById("grid");
     // Create a new tr element.
     let tr  = document.createElement('tr');
     
     // if no grid on screen
     if(numRows=== 0 && numCols === 0){
-      let td = document.createElement('td');
-      // Append row to show up in a column
-      tr.appendChild(td);
-      grid.appendChild(tr);
-      numRows=1;
-      numCols=1;
+        let td = document.createElement('td');
+        td.style.backgroundColor = defCol; // default color
+        td.onclick = function (){ // onclick color
+            this.style.backgroundColor = document.getElementById("selectedID").value;;
+        };
+        // Append row to show up in a column
+        tr.appendChild(td);
+        grid.appendChild(tr);
+        numRows=1;
+        numCols=1;
     }
     else{
-        for(let i=0; i < numCols; i++){
+            for(let i=0; i < numCols; i++){
             // Create a new td element.
             let td = document.createElement('td');
-            td.onclick = function (){
+            td.style.backgroundColor = defCol; // default color
+            td.onclick = function (){ // onclick color
                 this.style.backgroundColor = document.getElementById("selectedID").value;;
             };
             // Append row to show up in a column
             tr.appendChild(td);
         }
-    //  Append the tr to the grid
-    grid.appendChild(tr);
-    numRows++;
+        //  Append the tr to the grid
+        grid.appendChild(tr);
+        numRows++;
     }
 }
 //Add a column
 function addC() {
+    let defCol = "magenta";
     let grid = document.getElementById("grid");
      // Create a new tr element.
     let tr  = document.createElement('tr');
@@ -42,7 +49,10 @@ function addC() {
     // if no grid on screen
     if(numRows=== 0 && numCols === 0){
       let td = document.createElement('td');
-
+      td.style.backgroundColor = defCol; // default color
+      td.onclick = function (){ // onclick color
+         this.style.backgroundColor = document.getElementById("selectedID").value;;
+      };
       // Append row to show up in a column
       tr.appendChild(td);
       grid.appendChild(tr);
@@ -52,7 +62,11 @@ function addC() {
     else{    
         for(let i=0; i < rows.length;i++) // for all tr elements, create new td element
         {
-            let myCell = document.createElement('td'); 
+            let myCell = document.createElement('td');
+            myCell.style.backgroundColor = defCol; // default color
+            myCell.onclick = function (){ // onclick color
+                this.style.backgroundColor = document.getElementById("selectedID").value;
+            }; 
             rows[i].appendChild(myCell);
         }
         numCols++;
@@ -65,7 +79,7 @@ function removeR() {
     let lastRow = grid.lastElementChild;
     grid.removeChild(lastRow);
     numRows--;
-    // reset so col and rows are equal
+    // reset cols and rows
     if(numRows === 0){
         numCols = 0;
     }
@@ -79,7 +93,7 @@ function removeC() {
         row.removeChild(lastRow);
     }
     numCols--;
-    // reset so col and rows are equal
+    // reset col and rows
     if(numCols ===0){
         numRows = 0;
     }
@@ -89,9 +103,17 @@ function selected(){
     colorSelected = document.getElementById("selectedID").value;
     console.log(colorSelected);
 }
-
+// Fill all cells with selected color
 function fill(){
-    alert("Clicked Fill All")
+    let selCol = document.getElementById("selectedID").value;
+    // go through row's td children and change all bg colors
+    for(let i=0; i<numRows; i++){
+       let row = document.querySelectorAll('tr')[i];
+       let children = row.childNodes;
+       for(let child of children){ 
+            child.style.backgroundColor = selCol; // change to selected color
+       }
+    }
 }
 
 function clearAll(){
