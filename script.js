@@ -1,7 +1,7 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
-let defCol = "magenta";
+let defCol = "magenta"; // default color
 //Add a row
 function addR() {
 
