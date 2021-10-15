@@ -21,6 +21,9 @@ function addR() {
         for(let i=0; i < numCols; i++){
             // Create a new td element.
             let td = document.createElement('td');
+            td.onclick = function (){
+                this.style.backgroundColor = document.getElementById("selectedID").value;;
+            };
             // Append row to show up in a column
             tr.appendChild(td);
         }
@@ -32,14 +35,28 @@ function addR() {
 //Add a column
 function addC() {
     let grid = document.getElementById("grid");
+     // Create a new tr element.
+    let tr  = document.createElement('tr');
     // get tr children
     let rows = grid.children; 
-    for(let i=0; i < rows.length;i++) // for all tr elements, create new td element
-    {
-        let myCell = document.createElement('td'); 
-        rows[i].appendChild(myCell);
+    // if no grid on screen
+    if(numRows=== 0 && numCols === 0){
+      let td = document.createElement('td');
+
+      // Append row to show up in a column
+      tr.appendChild(td);
+      grid.appendChild(tr);
+      numRows=1;
+      numCols=1;
     }
-    numCols++;
+    else{    
+        for(let i=0; i < rows.length;i++) // for all tr elements, create new td element
+        {
+            let myCell = document.createElement('td'); 
+            rows[i].appendChild(myCell);
+        }
+        numCols++;
+    }
 }
 //Remove a row
 function removeR() {
