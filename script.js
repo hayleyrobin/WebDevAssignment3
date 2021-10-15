@@ -4,7 +4,7 @@ let colorSelected;
 let defCol = "magenta";
 //Add a row
 function addR() {
-    let defCol = "magenta";
+
     let grid = document.getElementById("grid");
     // Create a new tr element.
     let tr  = document.createElement('tr');
@@ -40,7 +40,7 @@ function addR() {
 }
 //Add a column
 function addC() {
-    let defCol = "magenta";
+
     let grid = document.getElementById("grid");
      // Create a new tr element.
     let tr  = document.createElement('tr');
@@ -115,7 +115,7 @@ function fill(){
        }
     }
 }
-
+// Clear cells back to default color
 function clearAll(){
     // go through row's td children and clear slected color
     for(let i=0; i<numRows; i++){
@@ -126,7 +126,16 @@ function clearAll(){
         }
      }    
 }
-
+// Fill all uncolored cells with the currently selected color
 function fillU(){
-    alert("Clicked Fill All Uncolored")
+    let selCol = document.getElementById("selectedID").value; // get selected color
+    for(let i=0; i<numRows; i++){
+        let row = document.querySelectorAll('tr')[i];
+        let children = row.childNodes;
+        for(let child of children){ 
+            if(child.style.backgroundColor === defCol){
+             child.style.backgroundColor = selCol; // change to selected color
+            }
+        }
+    }   
 }
