@@ -1,7 +1,7 @@
 let numRows = 0;
 let numCols = 0;
 let colorSelected; 
-
+let defCol = "magenta";
 //Add a row
 function addR() {
     let defCol = "magenta";
@@ -117,7 +117,14 @@ function fill(){
 }
 
 function clearAll(){
-    alert("Clicked Clear All")
+    // go through row's td children and clear slected color
+    for(let i=0; i<numRows; i++){
+        let row = document.querySelectorAll('tr')[i];
+        let children = row.childNodes;
+        for(let child of children){ 
+             child.style.backgroundColor = defCol; // change to default color
+        }
+     }    
 }
 
 function fillU(){
