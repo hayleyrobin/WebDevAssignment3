@@ -1,4 +1,4 @@
-# assignment3
+# WebDevAssignment3
 
 Gridmaker using DOM!
 
